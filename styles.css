@@ -1,0 +1,445 @@
+/* БАЗА: читаемость и предсказуемость размеров */
+
+
+:root{
+    /* Палитра */
+    --color-bg:#fff;
+    --color-fg:#0b0b0b;
+    --color-muted:#666;
+    --color-primary:#0a84ff;
+    --color-secondary: #064f99;
+    --color-danger:#b00020;
+    --color-border: #c8c8c8;
+    --color-active: #e6f2ff;
+
+    /* Типографика и размеры */
+    --font-body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    --space-1:4px;
+    --space-2:8px;
+    --space-3:16px;
+    --space-4:24px;
+    --space-5:40px;
+
+    /* Скругления и тени */
+    --radius:12px;
+    --radius-sm: 8px;
+    --shadow:0 1px 2px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.08);
+}
+
+/* Центровка и ограничение ширины контейнера */
+.container{ width:min(100% - 2*var(--space-4), 1120px); margin-inline:auto; }
+/* Вертикальные отступы секций по токенам */
+.section{ padding-block:var(--space-5); }
+.section__title{ margin:0 0 var(--space-3); }
+
+
+/* Тёмная тема: переопределяем только значения токенов */
+body.theme-dark{
+    --color-bg:#0b0b0b;
+    --color-fg:#f5f5f5;
+    --color-muted:#aaa;
+    --color-primary:#6aa2ff;
+    --color-border: #444;
+    --color-active: #2a2a2a;
+}
+
+
+/* Определяем класс кнопки переключения темы */
+        /* Кнопка переключения темы */
+        .theme-toggle {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-toggle:active {
+            transform: translateY(0);
+        }
+        
+        .theme-toggle::before {
+            content: '☀️';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .theme-dark .theme-toggle::before {
+            content: '🌙';
+            transform: rotate(360deg);
+        }
+        
+        .theme-toggle__tooltip {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .theme-toggle:hover .theme-toggle__tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+
+* { box-sizing: border-box; }
+
+.hero {
+  background:
+    linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)),
+    url("img/pikmiputin.jpeg") top/cover no-repeat;
+  /* top/cover - сохраняет верхнюю часть изображения */
+  color: #fff;
+  padding: clamp(2rem, 6vw, 6rem) 1rem;
+  border-radius: var(--radius);
+  min-height: 50vh; /* или нужная вам высота */
+  text-align: left center;
+}
+
+
+.media {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Соотношение 16:9 (9/16 = 0.5625) */
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.media iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius);
+}
+
+html, body { 
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg, white);
+    color: var(--color-fg, black);
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.5; 
+}
+
+
+
+/* HEADER по БЭМ */
+.header {
+    background-color: var(--color-bg);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.header__logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header__logo:hover,
+.header__logo:focus-visible {
+    color: var(--color-secondary);
+    /*outline: 2px solid var(--color-primary);
+    outline-offset: var(--space-1);*/
+}
+
+
+
+
+/* NAV по БЭМ */
+.nav__list {
+    outline: 2px solid var(--color-primary);
+    outline-offset: var(--space-1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-2);
+}
+
+.nav__link {
+    color: var(--color-fg);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.nav__link:hover {
+    background-color: var(--color-active);
+    color: var(--color-primary);
+}
+
+.nav__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    background-color: var(--color-active);
+}
+
+.nav__link--active {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.nav__link--active:hover {
+    background-color: var(--color-primary);
+    opacity: 0.9;
+    color: var(--color-bg);
+}
+
+
+
+/* BREADCRUMBS по БЭМ */
+.breadcrumbs {
+    background-color: var(--color-active);
+    padding: var(--space-3) 0;
+    margin-bottom: var(--space-4);
+}
+
+.breadcrumbs__container {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+    content: "›";
+    margin-left: var(--space-2);
+    color: var(--color-muted);
+}
+
+.breadcrumbs__link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs__link:hover {
+    color: var(--color-fg);
+    text-decoration: underline;
+}
+
+.breadcrumbs__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.breadcrumbs__link--current {
+    color: var(--color-muted);
+    pointer-events: none;
+}
+
+
+
+/* ANCHOR SECTIONS */
+.anchor-section {
+    scroll-margin-top: 100px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.anchor-section:target {
+    background-color: var(--color-active);
+    border-color: var(--color-primary);
+    outline: 2px dashed var(--color-primary);
+    outline-offset: -2px;
+    animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: color-mix(in srgb, var(--color-primary) 20%, transparent); }
+    100% { background-color: var(--color-active); }
+}
+
+.section__link {
+    display: inline-block;
+    margin-top: var(--space-3);
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.section__link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.section__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+
+
+
+/* Формы: размеры, отступы, визуальный порядок */
+label { 
+    display: block; 
+    margin: 0.5rem 0 0.25rem; 
+}
+
+input, select, textarea, button {
+    width: 100%;
+    max-width: 480px;
+    padding: .5rem .75rem;
+    border: 1px solid var(--color-border, black);
+    border-radius: var(--space-2);
+    background: var(--color-bg);
+    color: inherit;
+    font-family: inherit;
+}
+
+/* Кнопка по умолчанию */
+button, [type="submit"] {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+}
+
+/* Состояния: клавиатура/мышь/ошибки */
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid var(--color-primary); 
+    outline-offset: 2px;
+}
+button:hover {
+    filter: brightness(0.95);
+}
+
+:disabled, 
+[aria-disabled="true"] {
+    opacity: .6; 
+    cursor: not-allowed; 
+}
+
+/* Подсветка ошибочных полей (установите aria-invalid="true") */
+input[aria-invalid="true"], 
+select[aria-invalid="true"], 
+textarea[aria-invalid="true"] { 
+    border-color: var(--color-danger); 
+}
+
+/* стиль для диалога (модалки) */
+dialog {
+    padding: 1.25rem; 
+    border: none; 
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    box-shadow: var(--shadow);
+}
+dialog::backdrop { 
+    background: rgba(0,0,0,.5); 
+}
+.form-actions { 
+    display:flex; 
+    gap:.5rem;
+    margin-top:1rem; 
+}
+
+
+/* Медиа не «выпрыгивают» из контейнеров */
+img,video{ max-width:100%; height:auto; display:block; }
+
+/* :where(...) не добавляет специфичности — проще переопределять позже */
+:where(a,button,input,select,textarea):focus-visible{
+ outline:2px solid var(--color-primary);
+ outline-offset:2px;
+}
+/* Недоступные элементы визуально «приглушаем» */
+:disabled,
+[aria-disabled="true"]{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+html{ scroll-behavior:smooth; } /* Плавная прокрутка к #якорю */
+/* Подсветка цели */
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+    
+    .breadcrumbs__list {
+        flex-wrap: wrap;
+    }
+}
