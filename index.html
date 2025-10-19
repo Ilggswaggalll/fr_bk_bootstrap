@@ -7,140 +7,291 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
 
+    <!-- Подключение Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Файл стилей для кастомизации -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Подключение Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <!-- Файл JS -->
     <script src="main.js" defer></script>
 
-    <meta name="description" content="Краткое описание главной страницы вашего сайта">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <meta name="description" content="Сайт по практическим занятиям в МИРЭА">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+
 </head>
 
 
 <body>
- <!-- Шапка сайта -->
-    <header class="header">
-        <div class="header__container container">
-            <a href="index.html" class="header__logo">Фронтэнд/Бэкэнд разработка МИРЭА</a>
+    <!-- Шапка сайта -->
+    <header class="bg-light shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    Фронтэнд/бэкэнд разработка МИРЭА
+                </a>
 
-            <nav class="nav header__nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link nav__link--active">Главная</a>
-                    </li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Переключатель навигации">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <li class="nav__item">
-                        <a href="about.html" class="nav__link">О нас</a>
-                    </li>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+                        </li>
 
-                    <li class="nav__item">
-                        <a href="contacts.html" class="nav__link">Контакты</a>
-                    </li>
-                </ul>
-            </nav>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts.html">Контакты</a>
+                        </li>
 
-            <button class="theme-toggle" type="button" aria-pressed="false">
-                <span class="theme-toggle__tooltip">Сменить тему</span>
-            </button>
-        </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">О нас</a>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline-secondary ms-3 theme-toggle" type="button">
+                        Сменить тему
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
 
-
-<!-- Уникальное основное содержимое страницы -->
-    <main class="main">
+    <!-- Уникальное основное содержимое страницы -->
+    <main class="main py-5">
         <div class="container">
-            <h1 class="main__title">Добро пожаловать на наш сайт!</h1>
-            
-            <!-- Секция 1 с якорем -->
-            <section id="services" class="section anchor-section">
-                <h2 class="section__title">Наши услуги</h2>
 
-                <img
-                    src="img/russiancolor.jpeg"
-                    alt="Российский триколор"
-                    style="max-width: 100%; height: auto;">
-
-                <p>Описание предоставляемых услуг...</p>
-                <a href="#contacts" class="section__link">Связаться с нами</a>
-
+            <section class="hero-section text-center mb-5 py-5 bg-primary text-white rounded-3">
+                <h1 class="display-4 fw-bold mb-3">Добро пожаловать на наш сайт!</h1>
+                <p class="lead">Мы создаем современные веб-решения для вашего бизнеса</p>
+                <a href="#services" class="btn btn-light btn-lg mt-3">Узнать больше</a>
             </section>
+
+
+            <!-- Секция 1 с якорем -->
+            <section id="services" class="section anchor-section mb-5 py-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="section__title display-5 fw-bold mb-4">Наши услуги</h2>
+                        <p class="fs-5 mb-4">Мы предлагаем полный цикл разработки - от дизайна до запуска и поддержки вашего проекта.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Веб-разработка</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Мобильные приложения</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>UI/UX дизайн</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Техническая поддержка</li>
+                        </ul>
+                        <a href="#contacts" class="btn btn-primary btn-lg mt-3">Связаться с нами</a>
+                    </div>
+
+                    <div class="col-md-6">
+                        <img
+                                src="img/russiancolor.jpeg"
+                                alt="Российский триколор"
+                                class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </section>
+
             
             <!-- Секция 2 с якорем -->
-            <section id="portfolio" class="section anchor-section">
-                <h2 class="section__title">Портфолио</h2>
-                <p>Примеры наших работ...</p>
-                <section class="hero">
-                    <div class="hero-content">
-                      <h1>Пример 1</h1>
-                    </div>
-                </section>
+            <section id="portfolio" class="section anchor-section mb-5 py-4 bg-light rounded-3">
+                <h2 class="section__title text-center display-5 fw-bold mb-5">Наше портфолио</h2>
 
-                <!-- Вставка с Rutube; замените XXXXXXXXXXXX на ID ролика -->
-                <div class="media">
-                 <iframe
-                 src="https://rutube.ru/play/embed/6b1849d7aee48bf3bfd1e6315502fe18?autoplay=0"
-                 title="Видео о нас"
-                 allow="autoplay=0; encrypted-media; picture-in-picture; web-share"
-                 allowfullscreen loading="lazy"></iframe>
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title h4">Пример проекта 1</h3>
+                                <p class="card-text">Корпоративный сайт для крупной IT-компании с системой управления контентом.</p>
+                                <span class="badge bg-primary">Веб-разработка</span>
+                                <span class="badge bg-secondary">Дизайн</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title h4">Пример проекта 2</h3>
+                                <p class="card-text">Корпоративный сайт для крупной IT-компании с системой управления контентом.</p>
+                                <span class="badge bg-primary">Веб-разработка</span>
+                                <span class="badge bg-secondary">Дизайн</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+
+                    <!-- Видео блок -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="h4 mb-4">Видео о нашей работе</h3>
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                        src="https://rutube.ru/play/embed/6b1849d7aee48bf3bfd1e6315502fe18?autoplay=0"
+                                        title="Видео о нас"
+                                        allow="autoplay=0; encrypted-media; picture-in-picture; web-share"
+                                        allowfullscreen loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
             </section>
             
             <!-- Секция 3 с якорем -->
-            <section id="contacts" class="section anchor-section">
-                <h2 class="section__title">Контактная информация</h2>
-                <p>Наши контакты...</p>
-                <a href="contacts.html" class="section__link">Подробнее</a>
+            <section id="contacts" class="section anchor-section py-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h2 class="section__title display-5 fw-bold mb-4">Свяжитесь с нами</h2>
+                        <p class="fs-5 mb-4">Готовы начать проект? Напишите нам и мы обсудим детали сотрудничества.</p>
+
+                        <div class="row mt-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <i class="bi bi-telephone-fill h1 text-primary"></i>
+                                    <h3 class="h5 mt-2">Телефон</h3>
+                                    <p>+7 (123) 456-78-90</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <i class="bi bi-envelope-fill h1 text-primary"></i>
+                                    <h3 class="h5 mt-2">Email</h3>
+                                    <p>info@example.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <i class="bi bi-clock-fill h1 text-primary"></i>
+                                    <h3 class="h5 mt-2">Время работы</h3>
+                                    <p>Пн-Пт: 9:00-18:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="contacts.html" class="btn btn-outline-primary btn-lg mt-3">Подробнее о контактах</a>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
-
- <!-- Подвал сайта -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
-
-        <button id="openDialog" type="button" class="footer__button">Написать нам</button>
-
-        <dialog id="contactDialog" aria-labelledby="dialogTitle">
-            <h2 id="dialogTitle">Обратная связь</h2>
-
-            <form id="contactForm" method="dialog" novalidate>
-
-                <label for="name">Имя</label>
-                <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
-
-                <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" required autocomplete="email">
-
-                <label for="phone">Телефон</label>
-                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-                    aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__"
-                    required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-            
-                <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
-
-                <label for="date">Дата</label>
-                <input id="date" name="date" type="date">
-
-                <label for="topic">Тема</label>
-                <select id="topic" name="topic" required>
-                    <option value="">Выберите тему</option>
-                    <option>Вопрос</option>
-                    <option>Заказ</option>
-                </select>
-
-                <label for="message">Сообщение</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <div class="form-actions">
-                    <button type="button" id="closeDialog">Закрыть</button>
-                    <button type="submit">Отправить</button>
+    <footer class="footer bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">Фронтэнд/бэкэнд разработка МИРЭА</h5>
+                    <p>Профессиональная разработка современных веб-приложений и сайтов.</p>
                 </div>
-            </form>
-        </dialog>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Главная</a></li>
+                        <li class="mb-2"><a href="contacts.html" class="text-light text-decoration-none">Контакты</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">О нас</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Контакты</h5>
+                    <p class="mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        +7 (123) 456-78-90
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-envelope me-2"></i>
+                        info@example.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="row pt-4 border-top border-secondary">
+                <div class="col-md-6">
+                    <p>&copy; 2023 Фронтэнд/бэкэнд разработка МИРЭА. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <button id="openDialog" type="button" class="btn btn-primary">Написать нам</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Модальное окно Bootstrap (заменяем dialog) -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h4" id="contactModalLabel">Обратная связь</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Имя *</label>
+                                <input type="text" class="form-control" id="name" name="name" required minlength="2" autocomplete="given-name">
+                                <div class="invalid-feedback">Пожалуйста, введите ваше имя (минимум 2 символа).</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
+                                <div class="invalid-feedback">Пожалуйста, введите корректный email адрес.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Телефон *</label>
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                   pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                                   placeholder="+7 (___) ___-__-__" required>
+                            <div class="form-text">Формат: +7 (900) 000-00-00</div>
+                            <div class="invalid-feedback">Пожалуйста, введите телефон в правильном формате.</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="date" class="form-label">Дата</label>
+                                <input type="date" class="form-control" id="date" name="date">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="topic" class="form-label">Тема *</label>
+                                <select class="form-select" id="topic" name="topic" required>
+                                    <option value="">Выберите тему</option>
+                                    <option>Вопрос</option>
+                                    <option>Заказ</option>
+                                    <option>Сотрудничество</option>
+                                    <option>Техподдержка</option>
+                                </select>
+                                <div class="invalid-feedback">Пожалуйста, выберите тему обращения.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Сообщение *</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            <div class="invalid-feedback">Пожалуйста, напишите ваше сообщение.</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="submit" form="contactForm" class="btn btn-primary">Отправить</button>
+                </div>
+            </div>
+        </div>
     </div>
-</footer>
 </body>
 </html>

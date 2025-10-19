@@ -6,86 +6,222 @@
    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
    <title>Контактная информация</title>
 
-   <link rel="stylesheet" href="styles.css">
+    <!-- Подключение Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Файл стилей для кастомизации -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Подключение Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+
+    <!-- Файл JS -->
+    <script src="main.js" defer></script>
+
    <meta name="description" content="Контакты">
 </head>
 
 
 <body>
-   <header class="header">
-      <div class="header__container container">
-         <a href="index.html" class="header__logo">Фронтэнд/Бэкэнд разработка МИРЭА</a>
+   <header class="bg-light shadow-sm sticky-top">
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <div class="container">
+               <a class="navbar-brand fw-bold" href="index.html">
+                   Фронтэнд/бэкэнд разработка МИРЭА
+               </a>
 
-         <nav class="nav header__nav">
-            <ul class="nav__list">
-               <li class="nav__item">
-                  <a href="index.html" class="nav__link nav__link--active">Главная</a>
-               </li>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                       data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                       aria-label="Переключатель навигации">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
 
-               <li class="nav__item">
-                  <a href="about.html" class="nav__link">О нас</a>
-               </li>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                   <ul class="navbar-nav ms-auto">
+                       <li class="nav-item">
+                           <a class="nav-link" href="index.html">Главная</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="about.html">О нас</a>
+                       </li>
+                   </ul>
 
-               <li class="nav__item">
-                   <a href="contacts.html" class="nav__link">Контакты</a>
-               </li>
-            </ul>
-         </nav>
-      </div>
+                   <button class="btn btn-outline-secondary ms-3 theme-toggle" type="button">
+                       Сменить тему
+                   </button>
+               </div>
+           </div>
+       </nav>
    </header>
 
 
    <!-- Хлебные крошки -->
-   <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <div class="breadcrumbs__container container">
-         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item">
-               <a href="index.html" class="breadcrumbs__link">Главная</a>
-            </li>
-            <li class="breadcrumbs__item">
-               <span class="breadcrumbs__link breadcrumbs__link--current">Контакты</span>
-            </li>
-         </ul>
-      </div>
+   <nav aria-label="Хлебные крошки" class="bg-light py-3">
+       <div class="container">
+           <ol class="breadcrumb mb-0">
+               <li class="breadcrumb-item">
+                   <a href="index.html" class="text-decoration-none">Главная</a>
+               </li>
+               <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+           </ol>
+       </div>
    </nav>
 
 
-<main class="main">
-      <div class="container">
-         <h1 class="main__title">Контактная информация</h1>
-         
-         <section class="section anchor-section">
-            <h2 class="section__title">Адрес</h2>
-            <p>г. Москва, пр. Вернадского, д. 78</p>
-            <p>Метро: Юго-Западная</p>
-         </section>
-         
-         <section class="section anchor-section">
-            <h2 class="section__title">Телефоны</h2>
-            <p>Телефон: +7 (123) 456-78-90</p>
-            <p>Факс: +7 (123) 456-78-91</p>
-         </section>
-         
-         <section class="section anchor-section">
-            <h2 class="section__title">Электронная почта</h2>
-            <p>Email: info@mirea.ru</p>
-            <p>Техническая поддержка: support@mirea.ru</p>
-         </section>
-         
-         <section class="section anchor-section">
-            <h2 class="section__title">Режим работы</h2>
-            <p>Понедельник - Пятница: 9:00 - 18:00</p>
-            <p>Суббота: 10:00 - 16:00</p>
-            <p>Воскресенье: выходной</p>
-         </section>
-      </div>
+   <main class="main py-5">
+       <div class="container">
+           <div class="row mb-5">
+               <div class="col-12 text-center">
+                   <h1 class="display-4 fw-bold mb-3">Контактная информация</h1>
+                   <p class="lead text-muted">Свяжитесь с нами удобным для вас способом</p>
+               </div>
+           </div>
+
+           <div class="row g-4">
+               <!-- Адрес -->
+               <div class="col-md-6 col-lg-3">
+                   <div class="card h-100 shadow-sm border-0">
+                       <div class="card-body text-center p-4">
+                           <div class="mb-3">
+                               <i class="bi bi-geo-alt-fill text-primary display-6"></i>
+                           </div>
+                           <h3 class="h5 card-title mb-3">Адрес</h3>
+                           <p class="card-text">
+                               <strong>г. Москва, пр. Вернадского, д. 78</strong><br>
+                               <small class="text-muted">Метро: Юго-Западная</small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Телефоны -->
+               <div class="col-md-6 col-lg-3">
+                   <div class="card h-100 shadow-sm border-0">
+                       <div class="card-body text-center p-4">
+                           <div class="mb-3">
+                               <i class="bi bi-telephone-fill text-primary display-6"></i>
+                           </div>
+                           <h3 class="h5 card-title mb-3">Телефоны</h3>
+                           <p class="card-text">
+                               <strong>+7 (123) 456-78-90</strong><br>
+                               <small class="text-muted">Факс: +7 (123) 456-78-91</small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Электронная почта -->
+               <div class="col-md-6 col-lg-3">
+                   <div class="card h-100 shadow-sm border-0">
+                       <div class="card-body text-center p-4">
+                           <div class="mb-3">
+                               <i class="bi bi-envelope-fill text-primary display-6"></i>
+                           </div>
+                           <h3 class="h5 card-title mb-3">Электронная почта</h3>
+                           <p class="card-text">
+                               <strong>info@mirea.ru</strong><br>
+                               <small class="text-muted">Техподдержка: support@mirea.ru</small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Режим работы -->
+               <div class="col-md-6 col-lg-3">
+                   <div class="card h-100 shadow-sm border-0">
+                       <div class="card-body text-center p-4">
+                           <div class="mb-3">
+                               <i class="bi bi-clock-fill text-primary display-6"></i>
+                           </div>
+                           <h3 class="h5 card-title mb-3">Режим работы</h3>
+                           <p class="card-text">
+                               <strong>Пн-Пт: 9:00-18:00</strong><br>
+                               <small class="text-muted">Сб: 10:00-16:00</small><br>
+                               <small class="text-muted">Вс: выходной</small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Дополнительная контактная информация -->
+           <div class="row mt-5">
+               <div class="col-lg-8 mx-auto">
+                   <div class="card shadow-sm">
+                       <div class="card-body p-4">
+                           <h2 class="h4 mb-4">Дополнительная информация</h2>
+
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <h3 class="h5 text-primary mb-3">Как добраться</h3>
+                                   <ul class="list-unstyled">
+                                       <li class="mb-2">
+                                           <i class="bi bi-subway me-2"></i>
+                                           <strong>Метро:</strong> Юго-Западная
+                                       </li>
+                                       <li class="mb-2">
+                                           <i class="bi bi-bus-front me-2"></i>
+                                           <strong>Автобус:</strong> 227, 667
+                                       </li>
+                                       <li class="mb-2">
+                                           <i class="bi bi-car-front me-2"></i>
+                                           <strong>Парковка:</strong> Бесплатная на территории
+                                       </li>
+                                   </ul>
+                               </div>
+
+                               <div class="col-md-6">
+                                   <h3 class="h5 text-primary mb-3">Социальные сети</h3>
+                                   <div class="d-flex gap-3">
+                                       <a href="#" class="btn btn-outline-primary btn-sm">
+                                           <i class="bi bi-telegram"></i> Telegram
+                                       </a>
+                                       <a href="#" class="btn btn-outline-primary btn-sm">
+                                           <i class="bi bi-vk"></i> VK
+                                       </a>
+                                       <a href="#" class="btn btn-outline-primary btn-sm">
+                                           <i class="bi bi-youtube"></i> YouTube
+                                       </a>
+                                   </div>
+
+                                   <h3 class="h5 text-primary mt-4 mb-3">Экстренная связь</h3>
+                                   <p class="small text-muted">
+                                       Для срочных вопросов в нерабочее время:
+                                       <strong>+7 (900) 123-45-67</strong>
+                                   </p>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
    </main>
-   
-   <footer class="footer">
-      <div class="container">
-         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
-         <p>Телефон: +7 (123) 456-78-90</p>
-      </div>
+
+
+   <footer class="footer bg-dark text-light py-4 mt-5">
+       <div class="container">
+           <div class="row align-items-center">
+               <div class="col-md-6">
+                   <p class="mb-0">&copy; 2023 Фронтэнд/бэкэнд разработка МИРЭА. Все права защищены.</p>
+               </div>
+               <div class="col-md-6 text-md-end">
+                   <p class="mb-0">
+                       <i class="bi bi-telephone"></i>
+                       Телефон: +7 (123) 456-78-90
+                   </p>
+               </div>
+           </div>
+       </div>
    </footer>
+</body>
+</html>
 </body>
 </html>
